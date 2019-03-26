@@ -11,6 +11,7 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import { CompanyCreateComponent } from './company/company-create/company-create.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PersonCreateComponent } from './person/person-create/person-create.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PersonCreateComponent } from './person/person-create/person-create.comp
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
