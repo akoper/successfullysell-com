@@ -5,8 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/successfullysell', { promiseLibrary: require('bluebird') })
-    .then(() =>  console.log('connection successful'))
+mongoose.connect('mongodb://localhost/successfullysell', { useNewUrlParser: true, promiseLibrary: require('bluebird') })
+    .then(() =>  console.log('connection to mongodb successful :-) ak'))
     .catch((err) => console.error(err));
 
 var apiRouter = require('./routes/book');
@@ -33,7 +33,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.send(err.status);
+    res.sendStatus(err.status);
 });
 
 module.exports = app;
