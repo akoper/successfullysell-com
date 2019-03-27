@@ -1,0 +1,90 @@
+<h3 class="my-3">Create Company</h3>
+
+<form [formGroup]="angForm" novalidate>
+
+    <div class="form-group">
+        <label class="col-md-4">Name</label>
+        <input type="text" class="form-control col-md-5" formControlName="name" #name/>
+    </div>
+    <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['name'].errors.required">
+            Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">Industry</label>
+        <input type="text" class="form-control col-md-5" formControlName="industry" #industry/>
+    </div>
+    <div *ngIf="angForm.controls['industry'].invalid && (angForm.controls['industry'].dirty || angForm.controls['industry'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['industry'].errors.required">
+            Industry is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">Phone Number</label>
+        <input type="text" class="form-control col-md-5" formControlName="phone" #phone/>
+    </div>
+    <div *ngIf="angForm.controls['phone'].invalid && (angForm.controls['phone'].dirty || angForm.controls['phone'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['phone'].errors.required">
+            Phone number is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">Street</label>
+        <input type="text" class="form-control col-md-5" formControlName="street" #street/>
+    </div>
+    <div *ngIf="angForm.controls['street'].invalid && (angForm.controls['street'].dirty || angForm.controls['street'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['street'].errors.required">
+            Street is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">City</label>
+        <input type="text" class="form-control col-md-5" formControlName="city" #city/>
+    </div>
+    <div *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['city'].errors.required">
+            City is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">State</label>
+        <input type="text" class="form-control col-md-5" formControlName="state" #state/>
+    </div>
+    <div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['state'].errors.required">
+            State is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4">Zip Code</label>
+        <input type="text" class="form-control col-md-5" formControlName="zip_code" #zip_code/>
+    </div>
+    <div *ngIf="angForm.controls['zip_code'].invalid && (angForm.controls['zip_code'].dirty || angForm.controls['zip_code'].touched)"
+         class="alert alert-danger col-md-5">
+        <div *ngIf="angForm.controls['zip_code'].errors.required">
+            Zip code is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button (click)="addCompany(name.value, industry.value, phone.value, street.value, city.value, state.value, zip_code.value)"
+                [disabled]="angForm.pristine || angForm.invalid"
+                class="btn btn-primary">
+            Add Company
+        </button>
+    </div>
+
+</form>
