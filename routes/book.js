@@ -5,7 +5,7 @@ var Book = require('../models/Book.js');
 
 /* GET ALL BOOKS */
 router.get('/', function(req, res, next) {
-    console.log('book router GET hit');
+    console.log('Express Node GET books route hit');
     Book.find(function (err, products) {
         if (err) return next(err);
         res.json(products);
@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 
 /* GET SINGLE BOOK BY ID */
 router.get('/:id', function(req, res, next) {
+    console.log('Express Node GET book/:id route hit');
     Book.findById(req.params.id, function (err, post) {
         if (err) return next(err);
         res.json(post);
@@ -22,7 +23,7 @@ router.get('/:id', function(req, res, next) {
 
 /* SAVE BOOK */
 router.post('/', function(req, res, next) {
-    console.log('book router POST hit ------------- ak');
+    console.log('Express Node POST route hit');
     console.log(req.body);
     Book.create(req.body, function (err, post) {
         if (err) return next(err);
