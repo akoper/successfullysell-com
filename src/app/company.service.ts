@@ -1,29 +1,38 @@
-import { Injectable } from '@angular/core';
-import {Observable, of, throwError} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import {catchError, tap, map} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {Company} from './interface/company';
+import {HttpErrorHandler, HandleError} from './http-error-handler.service';
+
+const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CompanyService {
 
-  constructor(private http: HttpClient) {}
+    companyUrl = '/company';
+    handleError: HandleError;
 
-  addCompany(data) {
+    constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
+        this.handleError = httpErrorHandler.createHandleError('CompanyService');
+    }
 
-    // const obj = {
-    //   name: name,
-    //   industry: industry,
-    //   phone: phone,
-    //   street: street,
-    //   city: city,
-    //   state: state,
-    //   zip_code: zip_code
-    // };
+    /** GET companies from the server */
+    getCompanies(): Observable<Company[]> {
+        console.log('company service GET companies hit');
+        return this.http.get<Company[]>(this.companyUrl)
+            .pipe(catchError(this.handleError('getCompanies', [])));
+    }
 
-    // this.http.post(`${this.uri}/add`, obj)
-    //     .subscribe(res => console.log('Done'));
-  }
+    /** POST: add a new company to the database */
+    addCompany(company: Company): Observable<Company> {
+        console.log('company service POST hit');
+        return this.http.post<Company>(this.companyUrl, company, httpOptions)
+            .pipe(catchError(this.handleError('addCompany', company)));
+    }
 
 }
