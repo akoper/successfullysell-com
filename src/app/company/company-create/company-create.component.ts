@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {CompanyService} from '../../company.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CompanyCreateComponent implements OnInit {
 
     angForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private companyService: CompanyService) {
+    constructor(private router: Router, private formBuilder: FormBuilder, private companyService: CompanyService) {
         this.createForm();
     }
 
@@ -27,12 +28,19 @@ export class CompanyCreateComponent implements OnInit {
         });
     }
 
+    ngOnInit() {}
+
     addCompany() {
         console.log(this.angForm.value);
-        this.companyService.addCompany(this.angForm.value);
-    }
-
-    ngOnInit() {
+        this.companyService.addCompany(this.angForm.value).subscribe(
+            res => {
+                this.router.navigate(['/company']);
+            },
+            (err) => {
+                console.log(err);
+            },
+            () => console.log('companyCreateComponent.ts, addCompany().subscribe() callback hit')
+        );
     }
 
 }
