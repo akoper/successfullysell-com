@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost/successfullysell', { useNewUrlParser: true
     .catch((err) => console.error(err));
 
 var apiRouter = require('./routes/book');
+var companyRouter = require('./routes/company');
 
 var app = express();
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist/successfullysell-com')));
 app.use('/', express.static(path.join(__dirname, 'dist/successfullysell-com')));
 app.use('/api', apiRouter);
+app.use('/company', companyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
