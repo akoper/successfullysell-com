@@ -7,7 +7,7 @@ var CompanySchema = new mongoose.Schema({
     street: String,
     city: String,
     state: String,
-    zip: String,
+    zip_code: String,
     updated_date: { type: Date, default: Date.now },
 });
 

@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-// var Book = require('../models/Book.js');
 var Company = require('../models/Company.js');
 
 /* GET ALL COMPANIES */
@@ -34,6 +33,7 @@ router.post('/', function(req, res, next) {
 
 /* UPDATE COMPANY */
 router.put('/:id', function(req, res, next) {
+    console.log('Express Node route PUT/UPDATE method hit');
     Company.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
         if (err) return next(err);
         res.json(post);
@@ -42,6 +42,7 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE COMPANY */
 router.delete('/:id', function(req, res, next) {
+    console.log('Express Node route DELETE method hit');
     Company.findByIdAndRemove(req.params.id, req.body, function (err, post) {
         if (err) return next(err);
         res.json(post);

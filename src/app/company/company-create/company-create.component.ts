@@ -34,7 +34,7 @@ export class CompanyCreateComponent implements OnInit {
         console.log(this.angForm.value);
         this.companyService.addCompany(this.angForm.value).subscribe(
             res => {
-                this.router.navigate(['/company']);
+                this.router.navigate(['/companies']);
             },
             (err) => {
                 console.log(err);

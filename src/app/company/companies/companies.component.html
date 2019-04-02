@@ -22,8 +22,8 @@
     <td>{{ company.street }}</td>
     <td>{{ company.city }}</td>
     <td>{{ company.state }}</td>
-    <td>{{ company.zip }}</td>
-    <td><a [routerLink]="['/edit', company._id]" class="btn btn-primary">Edit</a></td>
+    <td>{{ company.zip_code }}</td>
+    <td><a [routerLink]="['/company-edit', company._id]" class="btn btn-primary">Edit</a></td>
     <td><a (click) = "deleteCompany(company._id)" class="btn btn-danger">Delete</a></td>
   </tr>
   </tbody>
