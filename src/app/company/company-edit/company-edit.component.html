@@ -1,0 +1,44 @@
+<h3 class="my-3">Edit Company</h3>
+
+<form [formGroup]="editForm" (ngSubmit)="updateCompany()">
+
+    <div class="form-group">
+        <label class="col-md-4" for="name">Name</label>
+        <input type="text" id="name" formControlName="name" class="form-control col-md-5" name="name" required>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4" for="industry">Industry</label>
+        <input type="text" id="industry" class="form-control col-md-5" formControlName="industry" name="industry" required>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4" for="phone">Phone Number</label>
+        <input type="text" id="phone" class="form-control col-md-5" formControlName="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4" for="street">Street</label>
+        <input type="text" id="street" class="form-control col-md-5" formControlName="street" name="street" required>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4" for="city">City</label>
+        <input type="text" id="city" class="form-control col-md-5" formControlName="city" name="city" required>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4" for="state">State</label>
+        <input type="text" id="state" class="form-control col-md-5" formControlName="state" name="state" required>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4" for="zip_code">Zip Code</label>
+        <input type="text" id="zip_code" class="form-control col-md-5" formControlName="zip_code" name="zip_code" required>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" [disabled]="!editForm.valid">Update</button>
+    </div>
+</form>
+

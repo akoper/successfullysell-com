@@ -8,6 +8,8 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {CompanyCreateComponent} from './company/company-create/company-create.component';
 import {PersonCreateComponent} from './person/person-create/person-create.component';
 import {CompaniesComponent} from './company/companies/companies.component';
+import {CompanyEditComponent} from './company/company-edit/company-edit.component';
+import {CompanyComponent} from './company/company/company.component';
 
 const routes: Routes = [
         {
@@ -24,6 +26,16 @@ const routes: Routes = [
             path: 'companies',
             component: CompaniesComponent,
             data: {title: 'Companies'}
+        },
+        {
+            path: 'company-edit/:id',
+            component: CompanyEditComponent,
+            data: {title: 'Company Edit'}
+        },
+        {
+            path: 'company/:id',
+            component: CompanyComponent,
+            data: {title: 'Company'}
         },
         {
             path: 'books',

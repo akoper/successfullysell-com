@@ -16,6 +16,7 @@ import {CompanyService} from './company.service';
 import {HttpErrorHandler} from './http-error-handler.service';
 import {CompanyComponent} from './company/company/company.component';
 import {CompaniesComponent} from './company/companies/companies.component';
+import { CompanyEditComponent } from './company/company-edit/company-edit.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {CompaniesComponent} from './company/companies/companies.component';
         HomepageComponent,
         PersonCreateComponent,
         CompanyComponent,
-        CompaniesComponent
+        CompaniesComponent,
+        CompanyEditComponent
     ],
     imports: [
         BrowserModule,
