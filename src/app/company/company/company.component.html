@@ -1,0 +1,24 @@
+<h3 class="my-3">{{ company.name }}</h3>
+
+<dl class="list">
+    <dt>Industry</dt>
+    <dd>{{ company.industry }}</dd>
+    <dt>Phone Number</dt>
+    <dd>{{ company.phone }}</dd>
+    <dt>Street</dt>
+    <dd>{{ company.street }}</dd>
+    <dt>City</dt>
+    <dd>{{ company.city }}</dd>
+    <dt>State</dt>
+    <dd>{{ company.state }}</dd>
+    <dt>Zip Code</dt>
+    <dd>{{ company.zip_code }}</dd>
+    <dt>Update Date</dt>
+    <dd>{{ company.updated_date }}</dd>
+</dl>
+<div class="row">
+    <div class="col-md-12">
+        <a [routerLink]="['/company-edit', company._id]" class="btn btn-success mr-3">EDIT</a>
+        <button class="btn btn-danger" type="button" (click)="deleteBook(company._id)">DELETE</button>
+    </div>
+</div>
