@@ -10,14 +10,6 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a routerLink="book-create" class="nav-link" routerLinkActive="active">Book Create</a>
-            </li>
-
-            <li class="nav-item">
-                <a routerLink="books" class="nav-link" routerLinkActive="active">Books</a>
-            </li>
-
-            <li class="nav-item">
                 <a routerLink="person/create" class="nav-link" routerLinkActive="active">Person Create</a>
             </li>
 
@@ -32,6 +24,9 @@
             <li class="nav-item">
                 <a routerLink="companies" class="nav-link" routerLinkActive="active">Companies</a>
             </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
                 <a class="nav-link" href="register" routerLinkActive="active">Register</a>
@@ -48,7 +43,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col">
 
             <router-outlet></router-outlet>
 
