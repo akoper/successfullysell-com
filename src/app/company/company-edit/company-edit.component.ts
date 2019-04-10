@@ -14,11 +14,10 @@ export class CompanyEditComponent implements OnInit {
     company: Company;
     editForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private companyService: CompanyService, private router: Router, private route: ActivatedRoute) {}
+    constructor(private formBuilder: FormBuilder, private companyService: CompanyService, 
+                private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit() {
-        // this.getCompany(this.route.snapshot.params['id']);
-        // console.log('Id is ' + this.route.snapshot.params['id']);
         this.editForm = this.formBuilder.group({
             _id: ['', Validators.required],
             name: ['', Validators.required],
@@ -31,6 +30,8 @@ export class CompanyEditComponent implements OnInit {
             updated_date: [''],
             __v: ['']
         });
+
+        // console.log('Id is ' + this.route.snapshot.params['id']);
 
         this.companyService.getCompany(this.route.snapshot.params['id']).subscribe(
             data => this.editForm.setValue(data)
