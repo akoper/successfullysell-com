@@ -1,9 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {BookComponent} from './book/book.component';
-import {BookDetailComponent} from './book-detail/book-detail.component';
-import {BookCreateComponent} from './book-create/book-create.component';
-import {BookEditComponent} from './book-edit/book-edit.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {CompanyCreateComponent} from './company/company-create/company-create.component';
 import {PersonCreateComponent} from './person/person-create/person-create.component';
@@ -36,26 +32,6 @@ const routes: Routes = [
             path: 'company/:id',
             component: CompanyComponent,
             data: {title: 'Company'}
-        },
-        {
-            path: 'books',
-            component: BookComponent,
-            data: {title: 'Book List'}
-        },
-        {
-            path: 'book-details/:id',
-            component: BookDetailComponent,
-            data: {title: 'Book Details'}
-        },
-        {
-            path: 'book-create',
-            component: BookCreateComponent,
-            data: {title: 'Create Book'}
-        },
-        {
-            path: 'book-edit/:id',
-            component: BookEditComponent,
-            data: {title: 'Edit Book'}
         },
         {
             path: '',
