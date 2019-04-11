@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {BookComponent} from './book/book.component';
-import {BookDetailComponent} from './book-detail/book-detail.component';
-import {BookCreateComponent} from './book-create/book-create.component';
-import {BookEditComponent} from './book-edit/book-edit.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {CompanyCreateComponent} from './company/company-create/company-create.component';
 import {PersonCreateComponent} from './person/person-create/person-create.component';
 import {CompaniesComponent} from './company/companies/companies.component';
 import {CompanyEditComponent} from './company/company-edit/company-edit.component';
 import {CompanyComponent} from './company/company/company.component';
+import {LoginComponent} from './user/login/login.component';
+import {ProfileComponent} from './user/profile/profile.component';
+import {RegisterComponent} from './user/register/register.component';
+import {AuthGuardService} from './auth-guard.service';
 
 const routes: Routes = [
         {
@@ -38,31 +38,23 @@ const routes: Routes = [
             data: {title: 'Company'}
         },
         {
-            path: 'books',
-            component: BookComponent,
-            data: {title: 'Book List'}
-        },
-        {
-            path: 'book-details/:id',
-            component: BookDetailComponent,
-            data: {title: 'Book Details'}
-        },
-        {
-            path: 'book-create',
-            component: BookCreateComponent,
-            data: {title: 'Create Book'}
-        },
-        {
-            path: 'book-edit/:id',
-            component: BookEditComponent,
-            data: {title: 'Edit Book'}
-        },
-        {
             path: '',
             component: HomepageComponent,
             data: {title: 'successfullysell.com'}
+        },
+        {
+            path: 'login',
+            component: LoginComponent
+        },
+        {
+            path: 'register',
+            component: RegisterComponent
+        },
+        {
+            path: 'profile',
+            component: ProfileComponent,
+            canActivate: [AuthGuardService]
         }
-
     ]
 ;
 
