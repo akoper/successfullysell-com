@@ -6,6 +6,10 @@ import {PersonCreateComponent} from './person/person-create/person-create.compon
 import {CompaniesComponent} from './company/companies/companies.component';
 import {CompanyEditComponent} from './company/company-edit/company-edit.component';
 import {CompanyComponent} from './company/company/company.component';
+import {LoginComponent} from './user/login/login.component';
+import {ProfileComponent} from './user/profile/profile.component';
+import {RegisterComponent} from './user/register/register.component';
+import {AuthGuardService} from './auth-guard.service';
 
 const routes: Routes = [
         {
@@ -37,8 +41,20 @@ const routes: Routes = [
             path: '',
             component: HomepageComponent,
             data: {title: 'successfullysell.com'}
+        },
+        {
+            path: 'login',
+            component: LoginComponent
+        },
+        {
+            path: 'register',
+            component: RegisterComponent
+        },
+        {
+            path: 'profile',
+            component: ProfileComponent,
+            canActivate: [AuthGuardService]
         }
-
     ]
 ;
 

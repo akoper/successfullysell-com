@@ -28,12 +28,20 @@
         </ul>
         <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item">
-                <a class="nav-link" href="register" routerLinkActive="active">Register</a>
+            <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+                <a routerLink="/login" class="nav-link" routerLinkActive="active">Login</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="login" routerLinkActive="active">Login</a>
+            <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+                <a routerLink="/register" class="nav-link" routerLinkActive="active">Register</a>
+            </li>
+
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a routerLink="/profile" class="nav-link" routerLinkActive="active">{{ auth.getUserDetails()?.name }}</a>
+            </li>
+
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a (click)="auth.logout()" class="nav-link">Logout</a>
             </li>
 
         </ul>

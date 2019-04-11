@@ -12,7 +12,11 @@ import {CompanyService} from './company.service';
 import {HttpErrorHandler} from './http-error-handler.service';
 import {CompanyComponent} from './company/company/company.component';
 import {CompaniesComponent} from './company/companies/companies.component';
-import { CompanyEditComponent } from './company/company-edit/company-edit.component';
+import {CompanyEditComponent} from './company/company-edit/company-edit.component';
+import {AuthenticationService} from './authentication.service';
+import {RegisterComponent} from './user/register/register.component';
+import {LoginComponent} from './user/login/login.component';
+import {ProfileComponent} from './user/profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +26,10 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
         PersonCreateComponent,
         CompanyComponent,
         CompaniesComponent,
-        CompanyEditComponent
+        CompanyEditComponent,
+        RegisterComponent,
+        LoginComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserModule,
@@ -35,6 +42,7 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
     providers: [
         CompanyService,
         HttpErrorHandler,
+        AuthenticationService,
         {provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap: [AppComponent]
 })
