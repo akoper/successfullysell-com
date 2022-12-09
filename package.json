@@ -22,7 +22,7 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-jwt": "^6.0.0",
     "http-errors": "^1.7.2",
     "jquery": "^3.5.0",
